@@ -5,10 +5,12 @@ using UnityEngine;
 public class Enemy: MonoBehaviour 
 {
     [SerializeField] int hp;
+    [SerializeField] int damage;
 
     public void OnShot(int damage)
     {
         hp -= damage;
+        print(hp);
         CheckIfDead();
     }
 
@@ -16,7 +18,22 @@ public class Enemy: MonoBehaviour
     {
         if (hp <= 0)
         {
-            this.gameObject.SetActive(false);
+            Destroy(this.gameObject);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            PlayerInfo target = other.gameObject.GetComponent<PlayerInfo>();
+            HitPlayer(target, damage);
+        }
+
+    }
+
+    void HitPlayer(PlayerInfo player, int damage)
+    {
+        player.PlayerHealth -= damage;
     }
 }

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4603cf75974d5f449b0012824947c481, type: 3}
-  m_Name: Pistol
+  m_Name: AK47
   m_EditorClassIdentifier: 
-  ammoAmount: 62
-  ammoType: 0
-  fireRate: 2
-  damage: 10
-  visualRepresentation: {fileID: 4316137222156191601, guid: bdb4d5e73c7d0a74285ad68cc075fc58, type: 3}
+  ammoAmount: 29
+  ammoType: 2
+  fireRate: 5
+  damage: 20
+  visualRepresentation: {fileID: 4509826971690781056, guid: 0eabe852c7f7862428499ad8faf5d0cb, type: 3}

@@ -1,16 +1,17 @@
 ﻿
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.AI; // użycie paczki unity odpowiedzialnej za sztuczną inteligencję postaci niesterowalnych (NPC)
 
-public class EnemyAiTutorial : MonoBehaviour
+public class EnemyAiTutorial : MonoBehaviour // Ten skrypt został przedstawiony na zajęciach w uproszczonej formie,
+                                             // nie będę go całego opisywał ale zapraszam do samodzielnej analizy
 {
-    public NavMeshAgent agent;
+    public NavMeshAgent agent; // zdeklarowanie "agenta" - postaci sterowanej przez SI
 
-    public Transform player;
+    public Transform player; //pozycja w jakiej znajduje się gracz
 
-    public LayerMask whatIsGround, whatIsPlayer;
+    public LayerMask whatIsGround, whatIsPlayer; // jakie obiekty mają być rozpoznawalne jako podłoże i jako gracz
 
-    public float health;
+    public float health; // poziom zdrowia przeciwnika
 
     //Patroling
     public Vector3 walkPoint;
@@ -35,7 +36,7 @@ public class EnemyAiTutorial : MonoBehaviour
     private void Update()
     {
         //Check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer); // sprawdzanie czy gracz znajduje się w zasięgu wykrywania
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
         if (!playerInSightRange && !playerInAttackRange) Patroling();
@@ -70,7 +71,7 @@ public class EnemyAiTutorial : MonoBehaviour
 
     private void ChasePlayer()
     {
-        agent.SetDestination(player.position);
+        agent.SetDestination(player.position); //ustawianie punktu dostępowego przemieszczania na pozycję gracza
     }
 
     private void AttackPlayer()
